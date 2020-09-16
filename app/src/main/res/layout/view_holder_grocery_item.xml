@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="@dimen/margin_medium"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_medium"
     app:cardCornerRadius="@dimen/margin_medium"
     app:cardElevation="@dimen/margin_small">
 
@@ -28,7 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tvTitle"
             android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginEnd="@dimen/margin_xlarge"
             android:fontFamily="sans-serif-medium"
+            android:layout_toStartOf="@id/btnEdit"
+            android:layout_alignParentStart="true"
             android:text="For the hungy kids at home"
             android:textColor="@android:color/secondary_text_dark"
             android:textSize="@dimen/text_regular" />
@@ -38,11 +41,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/margin_medium"
             android:text="x 5"
             android:textColor="@android:color/black"
             android:textSize="@dimen/text_regular_3x"
             android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btnDelete"
+            android:layout_width="@dimen/margin_xlarge"
+            android:layout_height="@dimen/margin_xlarge"
+            android:layout_below="@id/tvCount"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:src="@drawable/ic_baseline_delete_forever_24_green" />
+
+        <ImageView
+            android:id="@+id/btnEdit"
+            android:layout_width="@dimen/margin_xlarge"
+            android:layout_height="@dimen/margin_xlarge"
+            android:layout_below="@id/tvCount"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_toStartOf="@id/btnDelete"
+            android:src="@drawable/ic_baseline_edit_24" />
 
 
     </RelativeLayout>

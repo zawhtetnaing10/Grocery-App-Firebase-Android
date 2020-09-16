@@ -12,12 +12,4 @@ class GroceryAdapter() : BaseRecyclerAdapter<GroceryViewHolder, GroceryVO>() {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.view_holder_grocery_item,parent,false)
         return GroceryViewHolder(view)
     }
-
-    override fun getItemCount(): Int {
-        return 10
-    }
-
-    override fun onBindViewHolder(holder: GroceryViewHolder, position: Int) {
-
-    }
 }

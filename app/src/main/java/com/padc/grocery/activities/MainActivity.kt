@@ -5,28 +5,41 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.padc.grocery.R
 import com.padc.grocery.adapters.GroceryAdapter
+import com.padc.grocery.data.vos.GroceryVO
 import com.padc.grocery.dialogs.GroceryDialogFragment
+import com.padc.grocery.mvp.presenters.MainPresenter
+import com.padc.grocery.mvp.presenters.impls.MainPresenterImpl
+import com.padc.grocery.mvp.views.MainView
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity(), MainView {
 
-    val mAdapter: GroceryAdapter = GroceryAdapter()
+    private val mAdapter: GroceryAdapter = GroceryAdapter()
+    private lateinit var mPresenter: MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
-
+        setUpPresenter()
         setUpRecyclerView()
 
         setUpActionListeners()
+
+        mPresenter.onUiReady(this)
+    }
+
+    private fun setUpPresenter() {
+        mPresenter = getPresenter<MainPresenterImpl, MainView>()
     }
 
     private fun setUpActionListeners() {
         fab.setOnClickListener {
-            GroceryDialogFragment.newFragment().show(supportFragmentManager, GroceryDialogFragment.TAG_ADD_GROCERY_DIALOG)
+            GroceryDialogFragment.newFragment()
+                .show(supportFragmentManager, GroceryDialogFragment.TAG_ADD_GROCERY_DIALOG)
         }
     }
 
@@ -46,5 +59,13 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun showGroceryData(groceryList: List<GroceryVO>) {
+        mAdapter.setNewData(groceryList)
+    }
+
+    override fun showErrorMessage(message: String) {
+        Snackbar.make(window.decorView, message, Snackbar.LENGTH_LONG)
     }
 }

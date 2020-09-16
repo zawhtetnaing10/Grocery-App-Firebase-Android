@@ -1,0 +1,11 @@
+package com.padc.grocery.data.models
+
+import com.padc.grocery.data.vos.GroceryVO
+import com.padc.grocery.network.FirebaseApi
+
+interface GroceryModel {
+
+    var mFirebaseApi : FirebaseApi
+
+    fun getGroceries(onSuccess: (List<GroceryVO>) -> Unit, onFaiure: (String) -> Unit)
+}
