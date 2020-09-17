@@ -15,6 +15,10 @@ class MainPresenterImpl : MainPresenter, AbstractBasePresenter<MainView>() {
         mGroceryModel.addGrocery(name, description, amount)
     }
 
+    override fun onTapEditGrocery(name: String, description: String, amount: Int) {
+        mView.showGroceryDialog(name, description, amount.toString())
+    }
+
     override fun onUiReady(owner: LifecycleOwner) {
         mGroceryModel.getGroceries(
             onSuccess = {

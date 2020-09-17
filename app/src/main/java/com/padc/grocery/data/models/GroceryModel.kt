@@ -12,4 +12,6 @@ interface GroceryModel {
     fun addGrocery(name: String ,description : String, amount: Int)
 
     fun removeGrocery(name: String)
+
+    fun editGrocery(name: String, description: String, amount: Int)
 }

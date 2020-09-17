@@ -17,5 +17,9 @@ class GroceryViewHolder(itemView: View, private val mDelegate: GroceryViewItemAc
         itemView.btnDelete.setOnClickListener {
             mDelegate.onTapDeleteGrocery(data.name ?: "")
         }
+
+        itemView.btnEdit.setOnClickListener {
+            mDelegate.onTapEditGrocery(data.name ?: "", data.description ?: "", data.amount ?: 0)
+        }
     }
 }

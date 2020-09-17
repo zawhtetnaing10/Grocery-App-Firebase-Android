@@ -18,4 +18,8 @@ object GroceryModelImpl : GroceryModel {
     override fun removeGrocery(name: String) {
         mFirebaseApi.deleteGrocery(name)
     }
+
+    override fun editGrocery(name: String, description: String, amount: Int) {
+
+    }
 }

@@ -40,7 +40,4 @@ object RealtimeDatabaseFirebaseApiImpl : FirebaseApi {
     override fun deleteGrocery(name: String) {
         database.child("groceries").child(name).removeValue()
     }
-
-
-
 }
