@@ -8,4 +8,6 @@ interface GroceryModel {
     var mFirebaseApi : FirebaseApi
 
     fun getGroceries(onSuccess: (List<GroceryVO>) -> Unit, onFaiure: (String) -> Unit)
+
+    fun addGrocery(name: String ,description : String, amount: Int)
 }
