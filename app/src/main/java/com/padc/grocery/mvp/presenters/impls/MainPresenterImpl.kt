@@ -12,7 +12,7 @@ class MainPresenterImpl : MainPresenter, AbstractBasePresenter<MainView>() {
     private val mGroceryModel = GroceryModelImpl
 
     override fun onTapAddGrocery(name: String, description: String, amount: Int) {
-        mGroceryModel.addGrocery(name,description,amount)
+        mGroceryModel.addGrocery(name, description, amount)
     }
 
     override fun onUiReady(owner: LifecycleOwner) {
@@ -24,5 +24,9 @@ class MainPresenterImpl : MainPresenter, AbstractBasePresenter<MainView>() {
                 mView.showErrorMessage(it)
             }
         )
+    }
+
+    override fun onTapDeleteGrocery(name: String) {
+        mGroceryModel.removeGrocery(name)
     }
 }
