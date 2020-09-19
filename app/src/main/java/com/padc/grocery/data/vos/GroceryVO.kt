@@ -4,7 +4,7 @@ import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 class GroceryVO(
-    val name: String? = "",
-    val description: String? = "",
-    val amount: Int? = 0
+    var name: String? = "",
+    var description: String? = "",
+    var amount: Int? = 0
 )
