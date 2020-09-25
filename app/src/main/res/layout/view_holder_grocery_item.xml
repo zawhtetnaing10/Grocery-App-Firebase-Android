@@ -12,20 +12,30 @@
         android:layout_height="match_parent"
         android:padding="@dimen/margin_medium_2">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivGroceryImage"
-            android:layout_width="@dimen/grocery_image_size"
-            android:layout_height="@dimen/grocery_image_size"
-            android:scaleType="centerCrop"
-            android:visibility="visible" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:id="@+id/cvGroceryImage"
+            app:cardCornerRadius="@dimen/margin_medium"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivGroceryImage"
+                android:layout_width="@dimen/grocery_image_size"
+                android:layout_height="@dimen/grocery_image_size"
+                android:scaleType="centerCrop"
+                android:visibility="visible" />
+
+        </androidx.cardview.widget.CardView>
+
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/ivGroceryImage"
+            android:layout_toEndOf="@id/cvGroceryImage"
             android:fontFamily="sans-serif-medium"
             android:text="Milk"
+            android:layout_marginStart="@dimen/margin_small"
             android:textColor="@android:color/black"
             android:textSize="@dimen/text_regular_3x"
             android:textStyle="bold" />
@@ -40,6 +50,7 @@
             android:layout_marginEnd="@dimen/margin_xlarge"
             android:layout_toStartOf="@id/btnEdit"
             android:fontFamily="sans-serif-medium"
+            android:layout_marginStart="@dimen/margin_small"
             android:text="For the hungy kids at home"
             android:textColor="@android:color/secondary_text_dark"
             android:textSize="@dimen/text_regular" />

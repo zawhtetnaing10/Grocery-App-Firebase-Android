@@ -15,12 +15,13 @@ class MainPresenterImpl : MainPresenter, AbstractBasePresenter<MainView>() {
     private var mChosenGroceryForFileUpload: GroceryVO? = null
 
     override fun onTapAddGrocery(name: String, description: String, amount: Int) {
-        mGroceryModel.addGrocery(name, description, amount)
+        mGroceryModel.addGrocery(name, description, amount, "")
     }
 
     override fun onPhotoTaken(bitmap: Bitmap) {
-        Log.d("PhotoTaken", "Photo Taken")
-        // TODO upload files with firebase
+        mChosenGroceryForFileUpload?.let {
+            mGroceryModel.uploadImageAndUpdateGrocery(it, bitmap)
+        }
     }
 
     override fun onTapEditGrocery(name: String, description: String, amount: Int) {
