@@ -6,11 +6,15 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import com.padc.grocery.data.vos.GroceryVO
+
 
 object RealtimeDatabaseFirebaseApiImpl : FirebaseApi {
 
     private val database: DatabaseReference = Firebase.database.reference
+    private val storage = FirebaseStorage.getInstance()
+
 
     override fun getGroceries(
         onSuccess: (groceries: List<GroceryVO>) -> Unit,

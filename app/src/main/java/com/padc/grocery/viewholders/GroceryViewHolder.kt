@@ -21,5 +21,9 @@ class GroceryViewHolder(itemView: View, private val mDelegate: GroceryViewItemAc
         itemView.btnEdit.setOnClickListener {
             mDelegate.onTapEditGrocery(data.name ?: "", data.description ?: "", data.amount ?: 0)
         }
+
+        itemView.btnFileUpload.setOnClickListener {
+            mDelegate.onTapFileUpload(data)
+        }
     }
 }
