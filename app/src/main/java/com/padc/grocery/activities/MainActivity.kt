@@ -34,7 +34,7 @@ class MainActivity : BaseActivity(), MainView {
     companion object {
         const val PICK_IMAGE_REQUEST = 1111
 
-        fun newIntent(context: Context) : Intent{
+        fun newIntent(context: Context): Intent {
             return Intent(context, MainActivity::class.java)
         }
     }
@@ -111,6 +111,10 @@ class MainActivity : BaseActivity(), MainView {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun displayToolbarTitle(title: String) {
+        supportActionBar?.title = title
     }
 
     override fun showGroceryData(groceryList: List<GroceryVO>) {
