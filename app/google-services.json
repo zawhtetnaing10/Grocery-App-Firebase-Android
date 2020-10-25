@@ -30,6 +30,13 @@
             {
               "client_id": "866125290820-g8v7hlfhfh8tg9cgdig8huktjpjmhvan.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "866125290820-p9qbb4kr9m2r88habj835pbui76jjp3f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.padc.grocery"
+              }
             }
           ]
         }

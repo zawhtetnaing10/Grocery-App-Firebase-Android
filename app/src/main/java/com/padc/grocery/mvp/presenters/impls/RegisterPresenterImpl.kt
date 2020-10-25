@@ -1,6 +1,11 @@
 package com.padc.grocery.mvp.presenters.impls
 
+import android.content.Context
 import androidx.lifecycle.LifecycleOwner
+import com.padc.grocery.analytics.PARAMETER_EMAIL
+import com.padc.grocery.analytics.SCREEN_REGISTER
+import com.padc.grocery.analytics.TAP_LOGIN
+import com.padc.grocery.analytics.TAP_REGISTER
 import com.padc.grocery.data.models.AuthenticationModel
 import com.padc.grocery.data.models.AuthenticationModelImpl
 import com.padc.grocery.mvp.presenters.AbstractBasePresenter
@@ -11,7 +16,8 @@ class RegisterPresenterImpl : RegisterPresenter, AbstractBasePresenter<RegisterV
 
     private val mAuthenticationModel: AuthenticationModel = AuthenticationModelImpl
 
-    override fun onTapRegister(email: String, password: String, userName: String) {
+    override fun onTapRegister(context : Context, email: String, password: String, userName: String) {
+        sendEventsToFirebaseAnalytics(context, TAP_REGISTER, PARAMETER_EMAIL, email)
         mAuthenticationModel.register(email, password, userName, onSuccess = {
             mView.navigateToToLoginScreen()
         }, onFailure = {
@@ -19,5 +25,10 @@ class RegisterPresenterImpl : RegisterPresenter, AbstractBasePresenter<RegisterV
         })
     }
 
-    override fun onUiReady(owner: LifecycleOwner) {}
+    override fun onUiReady(
+        context: Context,
+        owner: LifecycleOwner
+    ) {
+        sendEventsToFirebaseAnalytics(context, SCREEN_REGISTER)
+    }
 }
