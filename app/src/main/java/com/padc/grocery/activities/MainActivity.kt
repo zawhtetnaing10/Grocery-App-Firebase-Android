@@ -52,7 +52,7 @@ class MainActivity : BaseActivity(), MainView {
 
         mPresenter.onUiReady(this, this)
 
-        addCrashButton()
+        //addCrashButton()
     }
 
     private fun addCrashButton(){
