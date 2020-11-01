@@ -32,7 +32,7 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <service
-            android:name=".java.GroceryMessagingService"
+            android:name=".fcm.GroceryMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

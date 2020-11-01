@@ -29,12 +29,16 @@ class LoginPresenterImpl : LoginPresenter, AbstractBasePresenter<LoginView>() {
     }
 
     override fun onTapLogin(context: Context, email: String, password: String) {
-        sendEventsToFirebaseAnalytics(context, TAP_LOGIN, PARAMETER_EMAIL, email)
-        mAuthenticatioModel.login(email, password, onSuccess = {
-            mView.navigateToHomeScreen()
-        }, onFailure = {
-            mView.showError(it)
-        })
+        if(email.isEmpty() || password.isEmpty()){
+            mView.showError("Please enter all the fields")
+        } else {
+            sendEventsToFirebaseAnalytics(context, TAP_LOGIN, PARAMETER_EMAIL, email)
+            mAuthenticatioModel.login(email, password, onSuccess = {
+                mView.navigateToHomeScreen()
+            }, onFailure = {
+                mView.showError(it)
+            })
+        }
     }
 
     override fun onTapRegister() {
